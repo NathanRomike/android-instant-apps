@@ -22,6 +22,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.newrelic.agent.android.NewRelic;
+import com.newrelic.agent.android.logging.AgentLog;
+
 /**
  * This Activity displays a simple hello world text.
  */
@@ -31,6 +34,9 @@ public class HelloActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hello);
+
+        NewRelic.withApplicationToken("<APP_TOKEN>").withLogLevel(AgentLog.DEBUG).start(this.getApplication());
+
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
