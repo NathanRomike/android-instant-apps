@@ -15,6 +15,7 @@
  */
 
 apply plugin: 'com.android.feature'
+apply plugin: 'newrelic'
 
 android {
     compileSdkVersion rootProject.compileSdk
@@ -39,4 +40,5 @@ dependencies {
     feature project(':features:bye')
     feature project(':features:hello')
     api "com.android.support:appcompat-v7:${rootProject.supportLib}"
+    compile 'com.newrelic.agent.android:android-agent:5.15.2'
 }
